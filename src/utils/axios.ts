@@ -79,7 +79,7 @@ instance.interceptors.response.use(
     (res: AxiosResponse) => {
         removePendingRequest(res.config); // 从pendingRequest对象中移除请求
         if (Number(res.data.code) === 200) {
-            return Promise.resolve(res);
+            return Promise.resolve(res.data);
         } else {
             notification.error({
                 duration: 3,
@@ -102,7 +102,7 @@ instance.interceptors.response.use(
  * @param {String} type -- 默认是get请求
  * @author: Jason
  */
-const http = (url: string, data: any = {}, type = 'GET') => {
+const http = <T>(url: string, data: any = {}, type = 'GET'): Promise<T> => {
     if (type === 'GET') {
         if (JSON.stringify(data) === '{}') {
             return instance.get(url);

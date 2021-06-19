@@ -10,12 +10,13 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
     },
     cache: {
-        type: "filesystem"
+        type: "filesystem",
     },
     devtool: "source-map",
     devServer: {
         hot: true,
         historyApiFallback: true,
+        stats: "errors-only",
         proxy: {
             "/eit": {
                 target: "http://127.0.0.1:7001",
@@ -60,4 +61,5 @@ module.exports = {
             template: "./src/index.html",
         }),
     ],
+    stats: "normal", // 只在发生错误或有新的编译时输出
 };
