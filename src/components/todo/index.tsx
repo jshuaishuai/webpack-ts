@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Typography, List } from "antd";
 import ItemCart from "./ItemCart";
 import useChecked from "./useChecked";
@@ -17,7 +17,7 @@ const cartData = Array(5)
         price: Math.round(Math.random() * 100),
     }));
 
-const TodoList = () => {
+const TodoList: FC = () => {
     const { onCheckedChange, checkedMap, filterChecked } = useChecked(cartData);
     /* 根据已选中的商品计算出总和 */
     const getSumPrice = (CartItem: CartItems) => {

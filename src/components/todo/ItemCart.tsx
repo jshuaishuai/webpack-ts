@@ -18,7 +18,7 @@ const areEaual = (preProps: Props, nextProps: Props) => {
     // 避免不必要的渲染 只有 当前checked 不同的的条件下才会渲染此组件
     return preProps.checked === nextProps.checked;
 };
-const ItemCart = (props: Props) => {
+const ItemCart: FC<Props> = (props) => {
     console.log("cart item rerender");
     const { item, onCheckedChange, checked } = props;
     const { name, price } = item;
