@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import { CartItem } from "./index";
 import { Typography } from "antd";
-import { onCheckedChange } from "./useChecked";
+import { OnCheckedChange } from "./useChecked";
 interface Props {
     item: CartItem;
-    onCheckedChange: onCheckedChange<CartItem>;
+    onCheckedChange: OnCheckedChange<CartItem>;
     checked: boolean;
 }
 /**
